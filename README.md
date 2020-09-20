@@ -1,5 +1,6 @@
 # Vallilan-lounasravintolat
 Repo tietokantasovellus-kurssille
+heroku:https://lounasravintolat.herokuapp.com/
 
 Tavoitteena on tehdä sovellus suurin piirtein materiaalin kolmannen esimerkin mallin mukaisesti.  Valitsin aiheen, koska asun alle kilometrin päästä noin kymmenestä eri lounasravintolasta, joten aiheesta on kokemusta.
 Sovelluksen pohjana tulee olemaan ravintola-arviot, mutta haluaisin lisätä jotain omaa tai ainutlaatuista esimerkin kohtien lisäksi. Päätin aiheen vasta hyvin myöhään joten en ole hirveästi perusideaa pidemmälle vielä miettinyt.
