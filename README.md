@@ -14,5 +14,5 @@ Jos tuntuu tarpeelliselta, voin myös ottaa lounasravintoloita muualta kuin Vall
 Palautus 2:
 
 Sovelluksessa on nyt ensin (täysin hyödytön) kirjautuminen ja sitten sivu, jossa voi lisätä uusia ravintoloita arvioitavaksi ja antaa niille 4 omaa arviointikriteeriä, mikä mahdollistaa saman ravintolan arvioimisen monella eri tavalla (esim. ruoan laatu ja ravintolan mukavuus voidaan arvioida nyt erikseen sen sijaan, että ravintolalla olisi vain yksi arvio).
-Samalta sivulta voi myös tietenkin itse osallistua arviointiin ja katsoa aikaisemmat tulokset. Olen yrittänyt kääntää sovellusta englanniksi mutta jotain taisi vielä olla kääntämättä. Myönnän suoraan että nyt palautuksen hetkellä en ole vielä saanut sovellusta toimimaan herokuun, mutta tämä on työn alla ja toivottavasti valmis maanantai-aamuna.
+Samalta sivulta voi myös tietenkin itse osallistua arviointiin ja katsoa aikaisemmat tulokset. Olen yrittänyt kääntää sovellusta englanniksi mutta jotain taisi vielä olla kääntämättä. Myönnän suoraan että nyt palautuksen hetkellä en ole vielä saanut sovellusta toimimaan herokuun, mutta tämä on työn alla ja toivottavasti valmis maanantaiaamuna.
 Sovelluksen testauksen pitäisi olla hyvin itseselitteistä, kirjaudu vain sisään millä tahansa tunnuksilla ja kokeile eri funktioita (lisääminen/arviointi/arviointien katsominen).
