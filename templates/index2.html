@@ -1,0 +1,9 @@
+<a href="/new">New Rating</a>
+<hr>
+{% for poll in polls %}
+Aihe: {{ poll[1] }} <br>
+Luotu: {{ poll[2].strftime("%Y-%m-%d %H:%M:%S") }} <br>
+<a href="/poll/{{ poll[0] }}">Go to rating</a> |
+<a href="/result/{{ poll[0] }}">Show results</a> <br>
+<hr>
+{% endfor %}
