@@ -35,11 +35,11 @@ def register():
 def adlogged():
     return render_template("adlogged.html")
 @app.route("/logged")
-def index2():
+def home():
     sql = "SELECT id, topic, created_at FROM polls ORDER BY id DESC"
     result = db.session.execute(sql)
     polls = result.fetchall()
-    return render_template("index2.html", polls=polls)
+    return render_template("home.html", polls=polls)
 @app.route("/send", methods=["POST"])
 def send():
     content = request.form["content"]
