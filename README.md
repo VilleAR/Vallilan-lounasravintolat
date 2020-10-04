@@ -25,3 +25,8 @@ Tämän lisäksi kommenttien jättäminen ei jostain syystä onnistu, koska sove
 Sovelluksesta puuttuu vielä kokonaan kyselyiden järjestäminen esimerkiksi aakkosjärjestykseen tai arvioiden mukaan, ja sen lisäksi haluan vielä lisätä toiminnallisuuden joka katsoo arvioijien "occupation"-kenttää ja sen perusteella osaa suositella (kehnosti mutta kuitenkin) ravintolaa.
 Muutamia linkkejä puuttuu myös, esimerkiksi home-sivulta ei pääse kirjautumaan ulos, mutta näiden tekeminen ei tuota vaikeuksia.
 Sovellus on paljon enemmän vaiheessa kuin toivoisin, mutta uskon että saan loput tehtyä kunhan pääsen mainituista ongelmista yli.
+
+Viime kerran palautteista:
+Mietin klassisen naiivin äänestysjärjestelmän ongelmaa jonkun aikaa ja päädyin siihen lopputulokseen, että on parempi antaa yhden käyttäjän antaa samalle ravintolalle monta arviota, koska mielipide voi tietenkin ajan kanssa muuttua. Ehkä paras ratkaisu olisi arvioinnin rajoittaminen esimerkiksi yhteen viikossa?
+Arvostelut tosiaan pitäisi laittaa luettavaksi suoraan etusivulta ennen kirjautumista, se pääsi unohtumaan mutta tuskin tuottaa hirveitä vaikeuksia.
+Loput kommentit on otettu huomioon ja hoidettu, vaikka käyttäjätiedon käyttö on edelleen hieman hakusessa admin-oikeuden kannalta.
