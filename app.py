@@ -15,18 +15,24 @@ def index():
     return render_template("index.html")
 @app.route("/registration")
 def registration():
-    return render_template("registration.html")
+    choices=["yes", "no"]
+    occupations=["Student", "Employed", "Both"]
+    return render_template("registration.html", choices=choices, occupations=occupations)
 
 @app.route("/register", methods=["POST"])
 def register():
     username=request.form["username"]
     password=request.form["password"]
     hash_value = generate_password_hash(password)
-    sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
-    db.session.execute(sql, {"username":username,"password":hash_value})
-    db.session.commit()
+    if "answer" in request.form:
+        admin=request.form["answer"]
+        sql = "INSERT INTO users (username,password, admin) VALUES (:username,:password, :admin)"
+        db.session.execute(sql, {"username":username,"password":hash_value, "admin":admin})
+        db.session.commit()
     return redirect("/")
-
+@app.route("/adlogged")
+def adlogged():
+    return render_template("adlogged.html")
 @app.route("/logged")
 def index2():
     sql = "SELECT id, topic, created_at FROM polls ORDER BY id DESC"

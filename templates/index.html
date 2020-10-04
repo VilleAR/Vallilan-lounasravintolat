@@ -1,7 +1,11 @@
 {% if session.username %}
 <p>Logged in as {{ session.username }}</p>
 <a href="/logged">Continue</a>
+{% if session.admin == "yes" %}
+<a href="adlogged">Continue as admin</a>
+{% endif %}
 <a href="/logout">Log out</a>
+<p>admin status: {{ session.admin }}</p>
 {% else %}
 <form action="/login" method="POST">
 <p>Username:<br>

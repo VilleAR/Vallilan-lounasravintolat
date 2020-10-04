@@ -9,5 +9,16 @@
 <p>Password:<br>
 <input type="password" name="password"></p>
 <input type="submit" value="Register">
+<br>
+<p> Choose occupation: </p>
+{% for occu in occupations %}
+<input type="radio" name="occupation" value="{{ occu }}"> {{ occu }} <br>
+{% endfor %}
+<br>
+Admin user?
+<br>
+{% for choice in choices %}
+<input type="radio" name="answer" value="{{ choice }}"> {{ choice }} <br>
+{% endfor %}
 </form>
 {% endif %}
