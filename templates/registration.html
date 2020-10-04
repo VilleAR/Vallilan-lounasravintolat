@@ -1,0 +1,13 @@
+{%if session.username %}
+<p> Already logged in!</p>
+<a href="/logged">Go back</a>
+{% else %}
+<form action="/register" method="POST">
+<p>Enter username and password:</p>
+<p>Username:<br>
+<input type="text" name="username"></p>
+<p>Password:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Register">
+</form>
+{% endif %}
