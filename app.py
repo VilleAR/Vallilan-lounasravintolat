@@ -40,6 +40,15 @@ def index2():
     result = db.session.execute(sql)
     polls = result.fetchall()
     return render_template("index2.html", polls=polls)
+@app.route("/send", methods=["POST"])
+def send():
+    content = request.form["content"]
+    username = session["username"]
+    poll_id = request.form["id"]
+    sql = "INSERT INTO messages (poll_id, content, username, created_at) VALUES (:poll_id, :content, :username, NOW())"
+    db.session.execute(sql, {"poll_id":poll_id, "content":content, "username":username})
+    db.session.commit()
+    return redirect("/result/"+str(poll_id))
 
 @app.route("/login",methods=["POST"])
 def login():

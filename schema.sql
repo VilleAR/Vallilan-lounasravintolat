@@ -20,3 +20,10 @@ CREATE TABLE users (
     admin TEXT,
     occupation TEXT
 );
+CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+    poll_id INTEGER REFERENCES polls,
+    content TEXT,
+    username TEXT,
+    created_at TIMESTAMP
+);
