@@ -11,8 +11,8 @@
 <input type="submit" value="Register">
 <br>
 <p> Choose occupation: </p>
-{% for occu in occupations %}
-<input type="radio" name="occupation" value="{{ occu }}"> {{ occu }} <br>
+{% for occupation in occupations %}
+<input type="radio" name="occupation" value="{{ occupation }}"> {{ occupation }} <br>
 {% endfor %}
 <br>
 Admin user?

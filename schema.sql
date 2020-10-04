@@ -13,3 +13,10 @@ CREATE TABLE answers (
     choice_id INTEGER REFERENCES choices,
     sent_at TIMESTAMP
 );
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT,
+    password TEXT,
+    admin TEXT,
+    occupation TEXT
+);
