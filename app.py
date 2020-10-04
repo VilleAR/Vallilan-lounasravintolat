@@ -24,10 +24,11 @@ def register():
     username=request.form["username"]
     password=request.form["password"]
     hash_value = generate_password_hash(password)
-    if "answer" in request.form:
-        admin=request.form["answer"]
-        sql = "INSERT INTO users (username,password, admin) VALUES (:username,:password, :admin)"
-        db.session.execute(sql, {"username":username,"password":hash_value, "admin":admin})
+    if "admin" and "occupation" in request.form:
+        admin=request.form["admin"]
+        occupation=request.form["occupation"]
+        sql = "INSERT INTO users (username,password, admin, occupation) VALUES (:username,:password, :admin, :occupation)"
+        db.session.execute(sql, {"username":username,"password":hash_value, "admin":admin, "occupation":occupation})
         db.session.commit()
     return redirect("/")
 @app.route("/adlogged")
