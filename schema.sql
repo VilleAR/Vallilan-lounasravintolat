@@ -27,3 +27,7 @@ CREATE TABLE messages (
     username TEXT,
     created_at TIMESTAMP
 );
+CREATE TABLE fights (
+    id SERIAL PRIMARY KEY,
+    fight TEXT
+);

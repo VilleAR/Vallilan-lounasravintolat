@@ -101,11 +101,15 @@ def result(id):
     sql = "SELECT topic FROM polls WHERE id=:id"
     result = db.session.execute(sql, {"id":id})
     topic = result.fetchone()[0]
+    result = db.session.execute("SELECT COUNT(*) FROM messages")
+    count = result.fetchone()[0]
+    result = db.session.execute("SELECT content FROM messages")
+    messages = result.fetchall()
     sql = "SELECT c.choice, COUNT(a.id) FROM choices c LEFT JOIN answers a " \
           "ON c.id=a.choice_id WHERE c.poll_id=:poll_id GROUP BY c.id"
     result = db.session.execute(sql, {"poll_id":id})
     choices = result.fetchall()
-    return render_template("result.html", topic=topic, choices=choices)
+    return render_template("result.html", topic=topic, choices=choices, count=count, messages=messages)
 
 @app.route("/create", methods=["POST"])
 def create():
@@ -120,3 +124,14 @@ def create():
             db.session.execute(sql, {"poll_id":poll_id, "choice":choice})
     db.session.commit()
     return redirect("/logged")
+
+@app.route("/harriet")
+def harriet():
+    sql = "SELECT fight FROM fights"
+    result = db.session.execute(sql)
+    fights = result.fetchall()
+    return render_template("harriet.html", fights=fights)
+
+@app.route("/ff14", methods=["POST"])
+def ff14():
+    return redirect("/harriet")
