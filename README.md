@@ -30,3 +30,11 @@ Viime kerran palautteista:
 Mietin klassisen naiivin äänestysjärjestelmän ongelmaa jonkun aikaa ja päädyin siihen lopputulokseen, että on parempi antaa yhden käyttäjän antaa samalle ravintolalle monta arviota, koska mielipide voi tietenkin ajan kanssa muuttua. Ehkä paras ratkaisu olisi arvioinnin rajoittaminen esimerkiksi yhteen viikossa?
 Arvostelut tosiaan pitäisi laittaa luettavaksi suoraan etusivulta ennen kirjautumista, se pääsi unohtumaan mutta tuskin tuottaa hirveitä vaikeuksia.
 Loput kommentit on otettu huomioon ja hoidettu, vaikka käyttäjätiedon käyttö on edelleen hieman hakusessa admin-oikeuden kannalta.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Loppupalautus:
+
+Sovelluksen testaamisen pitäisi olla melko yksinkertaista. Valitettavasti sekä occupation että admin user kentät ovat vieläkin hyödyttömiä, mutta niihin täytyy silti valita jotain, että käyttäjä luodaan tietokantaan.. En löytänyt tapaa vahvistaa käyttäjän admin-asetusta, ja en ehtinyt saada recommendations-tietokantaa toimimaan halutulla tavalla muiden ongelmien takia. 
+Ajatuksena oli, että jokaisen ravintolan kohdalla lukisi sen suosituin käyttäjäkunta, ja sen lisäksi ehkä vielä suositusten kokonaismäärä ja sivun yläosassa kunkin käyttäjäkunnan (occupation) suosituimmat ravintolat. Sivuston tyyli on melko yksitoikkoinen, käytin bootstrappia ja sen päälle hieman omia muutoksia, mutta
+halusin enimmäkseen keskittyä sovelluksen toiminnallisuuteen, joka silti jäi kesken. Leijonanosa sovellukseen käytetystä ajasta meni noin viiden saman ongelman selvittämiseen mikä nyt jälkeenpäin näkyy toiminnallisuuksien puutteissa, ja niistäkin onnistuin selvittämään vain osan, mutta olen silti erittäinen tyytyväinen kaikesta, jonka olen oppinut kurssin aikana.
+Harmittaa vain se tunne, että sovelluksesta olisi melko helpolla saanut paljon mallikkaamman.
+

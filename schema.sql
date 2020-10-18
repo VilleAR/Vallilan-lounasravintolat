@@ -31,3 +31,8 @@ CREATE TABLE fights (
     id SERIAL PRIMARY KEY,
     fight TEXT
 );
+CREATE TABLE recommendations (
+    id SERIAL PRIMARY KEY,
+    poll_id INTEGER REFERENCES polls,
+    occupation TEXT
+);
