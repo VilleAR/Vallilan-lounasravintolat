@@ -96,6 +96,21 @@ def answer():
         db.session.commit()
     return redirect("/result/"+str(poll_id))
 
+@app.route("/recommend", methods=["POST"])
+def recommend():
+    topic=request.form["topic"]
+    username=session["username"]
+    sql = "SELECT id FROM polls WHERE topic=:topic"
+    result=db.session.execute(sql, {"topic":topic})
+    poll_id=result.fetchone()[0]
+    sql = "SELECT occupation FROM users WHERE username=:username"
+    result=db.session.execute(sql, {"username":username})
+    occupation=result.fetchone()[0]
+    sql = "INSERT INTO recommendations (poll_id, occupation) VALUES (:poll_id, :occupation)"
+    db.session.execute(sql, {"poll_id":poll_id, "occupation":occupation})
+    db.session.commit()
+    return redirect("/poll/"+str(poll_id))
+
 @app.route("/poll/<int:id>")
 def poll(id):
     sql = "SELECT topic FROM polls WHERE id=:id"

@@ -14,5 +14,18 @@
 <input type="hidden" name="id" value="{{ id }}">
 </form>
 <hr>
+{% if session.username %}
+<h7>Would you recommend this restaurant?</h7>
+<form action="/recommend" method="POST">
+    <input onclick="myFunction()" type="button" name="answer" value="Yes" style="background-color: midnightblue; color:whitesmoke;">
+    <input type="hidden" name="username" value= "{{ session.username }}">
+    <p id="demo"></p>
+    <script>
+        function myFunction() {
+          document.getElementById("demo").innerHTML = "Thank you for your recommendation!";
+        }
+    </script>
+</form>
+{% endif %}
 <a href="/home">Back</a>
 {% endblock %}
