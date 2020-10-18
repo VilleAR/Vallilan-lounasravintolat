@@ -1,9 +1,0 @@
-
-<img src="templates/woah.png" alt="Gamer god" class="img-rounded" style="height: 300px;"/>
-Please select fights that I will beat (remember that I am god gamer)
-<form action="/ff14" method="POST">
-{% for fight in fights %}
-<input type="checkbox" name="answer" value="{{ fight[0] }}"> {{ fight[0] }} <br>
-{% endfor %}
-<input type="submit" value="Submit">
-</form>

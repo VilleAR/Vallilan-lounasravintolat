@@ -1,7 +1,14 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "layout.html" %}
+{% block title %}Front page{% endblock %}
+{% block content %}
+<h2>Front page</h2>
+Welcome to the restaurant rating app
 {% if session.username %}
 <p>Logged in as {{ session.username }}</p>
-<a href="/logged">Continue</a>
-{% if session.admin == "yes" %}
+<a href="/home">Continue</a>
+{% if admin %}
 <a href="adlogged">Continue as admin</a>
 {% endif %}
 <a href="/logout">Log out</a>
@@ -13,7 +20,9 @@
 <p>Password:<br>
 <input type="password" name="password"></p>
 <input type="submit" value="Log in">
+<hr>
 <p>Make a new user:</p>
 <a href="/registration">Register</a>
 </form>
 {% endif %}
+{% endblock %}

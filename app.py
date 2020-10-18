@@ -34,17 +34,27 @@ def register():
 @app.route("/adlogged")
 def adlogged():
     return render_template("adlogged.html")
-@app.route("/logged")
+@app.route("/home")
 def home():
     sql = "SELECT id, topic, created_at FROM polls ORDER BY id DESC"
     result = db.session.execute(sql)
     polls = result.fetchall()
     return render_template("home.html", polls=polls)
+@app.route("/home/sortbydate")
+def sortbydate():
+    sql = "SELECT id, topic, created_at FROM polls ORDER BY id DESC"
+    result = db.session.execute(sql)
+    polls = result.fetchall()
+    return render_template("sortbydate.html", polls=polls)
+
 @app.route("/send", methods=["POST"])
 def send():
     content = request.form["content"]
     username = session["username"]
-    poll_id = request.form["id"]
+    topic=request.form["topic"]
+    sql = "SELECT id FROM polls WHERE topic=:topic"
+    result=db.session.execute(sql, {"topic":topic})
+    poll_id=result.fetchone()[0]
     sql = "INSERT INTO messages (poll_id, content, username, created_at) VALUES (:poll_id, :content, :username, NOW())"
     db.session.execute(sql, {"poll_id":poll_id, "content":content, "username":username})
     db.session.commit()
@@ -103,7 +113,7 @@ def result(id):
     topic = result.fetchone()[0]
     result = db.session.execute("SELECT COUNT(*) FROM messages")
     count = result.fetchone()[0]
-    result = db.session.execute("SELECT content FROM messages")
+    result = db.session.execute("SELECT content, username, created_at FROM messages")
     messages = result.fetchall()
     sql = "SELECT c.choice, COUNT(a.id) FROM choices c LEFT JOIN answers a " \
           "ON c.id=a.choice_id WHERE c.poll_id=:poll_id GROUP BY c.id"
@@ -124,14 +134,3 @@ def create():
             db.session.execute(sql, {"poll_id":poll_id, "choice":choice})
     db.session.commit()
     return redirect("/logged")
-
-@app.route("/harriet")
-def harriet():
-    sql = "SELECT fight FROM fights"
-    result = db.session.execute(sql)
-    fights = result.fetchall()
-    return render_template("harriet.html", fights=fights)
-
-@app.route("/ff14", methods=["POST"])
-def ff14():
-    return redirect("/harriet")

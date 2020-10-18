@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "layout.html" %}
+{% block title %}Front page{% endblock %}
+{% block content %}
+<title>Add a new restaurant for people to rate:</title>
 <form action="/create" method="POST">
     <p>Restaurant:<br>
     <input type="text" name="topic"></p>
@@ -9,7 +15,8 @@
     <input type="text" name="choice"></p>
     <p>Rating 4:<br>
     <input type="text" name="choice"></p>
-    <input type="submit" value="Luo kysely">
+    <input type="submit" value="Create poll">
     <hr>
-    <a href="/logged">Go back</a>
+    <a href="/home">Go back</a>
     </form>
+{% endblock %}

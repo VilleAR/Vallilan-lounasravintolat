@@ -15,7 +15,7 @@ border-bottom: 3px solid #333333;
 border-left: 3px solid #CCCCCC;">New Rating</a>
 {% endif %}
 <hr>
-<a href="/home/sortbydate" class="button" style="font: italic bold 13px Times_New_roman;
+<a href="/home" class="button" style="font: italic bold 13px Times_New_roman;
 text-decoration: none;
 background-color: #EEEEEE;
 color: #333333;
@@ -23,10 +23,10 @@ padding: 4px 12px 4px 12px;
 border-top: 3px solid #CCCCCC;
 border-right: 3px solid #333333;
 border-bottom: 3px solid #333333;
-border-left: 3px solid #CCCCCC;">Sort by creation date</a>
+border-left: 3px solid #CCCCCC;">Sort alphabetically</a>
 <p></p>
-{% set sort_on='topic' %}
-{% set order_rev=False %}
+{% set sort_on='created_at' %}
+{% set order_rev=True %}
 {% for poll in polls|sort(attribute=sort_on, reverse=order_rev) %}
 <h5>Restaurant: {{ poll[1] }} <br></h5>
 Created: {{ poll[2].strftime("%Y-%m-%d %H:%M:%S") }} <br>

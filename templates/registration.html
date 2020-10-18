@@ -1,8 +1,14 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "layout.html" %}
+{% block title %}Front page{% endblock %}
+{% block content %}
 {%if session.username %}
 <p> Already logged in!</p>
-<a href="/logged">Go back</a>
+<a href="/home">Go back</a>
 {% else %}
 <form action="/register" method="POST">
+<h3> Registration</h3>
 <p>Enter username and password:</p>
 <p>Username:<br>
 <input type="text" name="username"></p>
@@ -10,6 +16,7 @@
 <input type="password" name="password"></p>
 <input type="submit" value="Register">
 <br>
+<hr>
 <p> Choose occupation: </p>
 {% for occupation in occupations %}
 <input type="radio" name="occupation" value="{{ occupation }}"> {{ occupation }} <br>
@@ -22,3 +29,4 @@ Admin user?
 {% endfor %}
 </form>
 {% endif %}
+{% endblock %}

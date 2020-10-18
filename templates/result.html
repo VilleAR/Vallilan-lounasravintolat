@@ -1,24 +1,41 @@
-{{ topic }}
+<!DOCTYPE html> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "layout.html" %}
+{% block title %}Front page{% endblock %}
+{% block content %}
+<h1 style="padding: 10px">{{ topic }} </h1>
 <hr>
 <ul>
+<h4>Ratings:</h4>
 {% for choice in choices %}
-<li> {{ choice[0] }}: {{ choice[1] }} kpl
+<li> {{ choice[0] }}: {{ choice[1] }} votes
 {% endfor %}
 </ul>
 <hr>
-<a href="/logged">Back</a>
+<a href="/home">Back</a>
 <hr>
+{% if session.username %}
 <form action="/send" method="POST">
 Leave a comment: <br>
 <textarea name="content" rows="3" cols="40"></textarea>
 <br>
 <input type="submit" value="Submit">
 <input type="hidden" name="id" value="{{ id }}">
+<input type="hidden" name="topic" value="{{ topic }}">
 </p>
 </form>
-Comments:
+{% endif %}
+<h4>Comments:</h4>
 <hr>
-{% for message in messages %}
-{{ message[0][0]}}
+{% set sort_on='content' %}
+{% set order_rev=True %}
+
+{% for message in messages|sort(attribute=sort_on, reverse=order_rev) %}
+<div style="background: ghostwhite; font-size: 20px; padding: 10px; border: 1px solid lightgray; margin: 10px;">
+{{ message[0]}}
+</div>
+<p>Comment by user <b>{{ message[1] }} </b> sent at {{ message[2].strftime("%Y-%m-%d %H:%M:%S") }}</p>
 <hr>
 {% endfor %}
+{% endblock %}
