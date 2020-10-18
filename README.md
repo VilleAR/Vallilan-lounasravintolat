@@ -38,3 +38,7 @@ Ajatuksena oli, että jokaisen ravintolan kohdalla lukisi sen suosituin käyttä
 halusin enimmäkseen keskittyä sovelluksen toiminnallisuuteen, joka silti jäi kesken. Leijonanosa sovellukseen käytetystä ajasta meni noin viiden saman ongelman selvittämiseen mikä nyt jälkeenpäin näkyy toiminnallisuuksien puutteissa, ja niistäkin onnistuin selvittämään vain osan, mutta olen silti erittäinen tyytyväinen kaikesta, jonka olen oppinut kurssin aikana.
 Harmittaa vain se tunne, että sovelluksesta olisi melko helpolla saanut paljon mallikkaamman.
 
+----------
+(Deadlinen jälkeen kirjoitettu osa)
+Haluan kuitenkin jatkaa sovelluksen kehittämistä loppuun ihan harjoituksen vuoksi ja toivon, että se ei haittaa arvostelua. Githubista kai saa deadlinea edeltävän version, mikäli olen ehtinyt päivittää sovellusta ennen sen arvostelua.
+PS. pahoittelut rumasta ulkoasusta, cornsilk käy vanhaksi äkkiä
