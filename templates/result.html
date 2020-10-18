@@ -33,9 +33,9 @@ Leave a comment: <br>
 
 {% for message in messages|sort(attribute=sort_on, reverse=order_rev) %}
 <div style="background: ghostwhite; font-size: 20px; padding: 10px; border: 1px solid lightgray; margin: 10px;">
-{{ message[0]}}
+{{ message[1]}}
 </div>
-<p>Comment by user <b>{{ message[1] }} </b> sent at {{ message[2].strftime("%Y-%m-%d %H:%M:%S") }}</p>
+<p>Comment by user <b>{{ message[2] }} </b> sent at {{ message[3].strftime("%Y-%m-%d %H:%M:%S") }}</p>
 <hr>
 {% endfor %}
 {% endblock %}

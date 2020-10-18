@@ -3,7 +3,7 @@
 {% extends "layout.html" %}
 {% block title %}Front page{% endblock %}
 {% block content %}
-{{ topic }}
+<h2>{{ topic }}</h2>    
 <hr>
 <form action="/answer" method="POST">
 {% for choice in choices %}

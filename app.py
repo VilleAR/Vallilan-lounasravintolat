@@ -113,13 +113,14 @@ def result(id):
     topic = result.fetchone()[0]
     result = db.session.execute("SELECT COUNT(*) FROM messages")
     count = result.fetchone()[0]
-    result = db.session.execute("SELECT content, username, created_at FROM messages")
+    sql = "SELECT id, content, username, created_at FROM messages WHERE poll_id=:id"
+    result = db.session.execute(sql, {"id":id})
     messages = result.fetchall()
     sql = "SELECT c.choice, COUNT(a.id) FROM choices c LEFT JOIN answers a " \
           "ON c.id=a.choice_id WHERE c.poll_id=:poll_id GROUP BY c.id"
     result = db.session.execute(sql, {"poll_id":id})
     choices = result.fetchall()
-    return render_template("result.html", topic=topic, choices=choices, count=count, messages=messages)
+    return render_template("result.html", id=id, topic=topic, choices=choices, count=count, messages=messages)
 
 @app.route("/create", methods=["POST"])
 def create():
@@ -128,9 +129,10 @@ def create():
     result = db.session.execute(sql, {"topic":topic})
     poll_id = result.fetchone()[0]
     choices = request.form.getlist("choice")
-    for choice in choices:
-        if choice != "":
-            sql = "INSERT INTO choices (poll_id, choice) VALUES (:poll_id, :choice)"
-            db.session.execute(sql, {"poll_id":poll_id, "choice":choice})
-    db.session.commit()
-    return redirect("/logged")
+    if choices[0] != "" and topic!= "":
+        for choice in choices:
+            if choice != "":
+                sql = "INSERT INTO choices (poll_id, choice) VALUES (:poll_id, :choice)"
+                db.session.execute(sql, {"poll_id":poll_id, "choice":choice})
+        db.session.commit()
+    return redirect("/home")
